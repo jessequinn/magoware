@@ -17,7 +17,7 @@ module.exports = {
     port: process.env.REDIS_PORT || 6379,
     database: process.env.REDIS_DATABASE || 0,
     password: process.env.REDIS_PASSWORD || "",
-    embedded: (process.env.REDIS_EMBEDDED === 'true') ? true:false
+    embedded: (process.env.REDIS_EMBEDDED === 'true') ? true : false
   },
   log: {
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
@@ -32,12 +32,12 @@ module.exports = {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
   mailer: {
-    from: process.env.MAILER_FROM || 'vivitv@getvivitv.com', //'MAILER_FROM',
+    from: process.env.MAILER_FROM || 'noreply@magoware.tv', //'MAILER_FROM',
     options: {
-      service: process.env.MAILER_SERVICE_PROVIDER || 'smtp.gmail.com:465',
+      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
       auth: {
-        user: process.env.MAILER_EMAIL_ID || 'vivitv@getvivitv.com',
-        pass: process.env.MAILER_PASSWORD || 'Nova2019@'
+        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
+        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
       }
     }
   },
