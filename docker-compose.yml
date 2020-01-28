@@ -1,0 +1,60 @@
+version: "3.7"
+
+services:
+  #######################
+  # Magoware
+  #######################
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/nodejs/Dockerfile
+    restart: unless-stopped
+    environment:
+      DB_NAME: magoware
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: xio9alaitavooR5f
+      DB_DIALECT: mysql
+      DB_SSL: "false"
+      DB_SYNC: "true"
+      REDIS_HOST: cache
+      REDIS_PORT: 6379
+      REDIS_DATABASE: 0
+      REDIS_PASSWORD: ""
+      REDIS_EMBEDDED: "false"
+#    command: "./node_modules/.bin/sequelize db:migrate"
+    depends_on:
+      - db
+      - cache
+    ports:
+      - "3000:3000"
+  #######################
+  # Redis 5
+  #######################
+  cache:
+    image: redis:5.0.7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+  #######################
+  # Mysql 5.7
+  #######################
+  db:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: xio9alaitavooR5f
+      MYSQL_DATABASE: magoware
+    ports:
+      - "3306:3306"
+  #######################
+  # Adminer for mysql administration
+  #######################
+  adminer:
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
