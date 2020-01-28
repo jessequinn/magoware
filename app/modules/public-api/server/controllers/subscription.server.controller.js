@@ -72,20 +72,7 @@ exports.addSubscription = function (req, res) {
                 winston.error('Adding subscription failed with error: ', err);
                 res.status(500).send({error: {code: 500, message: 'Internal error'}});
               });
-
-              // // add subscription
-              // saleFunctions.add_subscription(req, res, 1, req.body.transaction_id).then(function (result) {
-              //   if (result.status) {
-              //     res.send({data: {message: result.message}});
-              //   } else {
-              //     res.status(409).send({error: {code: 409, message: result.message}});
-              //   }
-              // }).catch(function (err) {
-              //   winston.error('Adding subscription failed with error: ', err);
-              //   res.status(500).send({error: {code: 500, message: 'Internal error'}});
-              // });
             })
-
           } else if (req.body.type == 'vod') {
             saleFunctions.buy_movie(req, res, req.body.username, req.body.product_id, req.body.transaction_id).then(function (resul) {
               if (resul.status) {
@@ -106,7 +93,7 @@ exports.addSubscription = function (req, res) {
       res.status(500).send({error: {code: 500, message: 'Internal error'}})
     });
   })
-}
+};
 
 
 /**
