@@ -10,6 +10,7 @@ var binName;
 var dir = './bin/redis';
 
 module.exports.startServer = function(config, callback) {
+    winston.info('Platform: ' + process.platform);
     if (process.platform == 'win32') {
         binName = 'redis-server.exe';
         if (!fs.existsSync(dir)) {
@@ -18,7 +19,7 @@ module.exports.startServer = function(config, callback) {
         }
         else {
             start();
-        }    
+        }
     } else {
         binName = 'redis-server';
         if (!fs.existsSync(dir)) {
@@ -27,20 +28,20 @@ module.exports.startServer = function(config, callback) {
         }
         else {
             start();
-        }    
+        }
     }
-    
+
     function downloadRedis(downloadUrl) {
         const ext = path.extname(downloadUrl);
         const filename = 'redis-server' + ext;
-    
+
         download(downloadUrl).then((data) => {
             // noinspection JSAnnotator
             fs.writeFileSync('./redis/' + filename, data, {mode: 0775});
             if (ext == '') {
                 start();
                 return;
-            } 
+            }
             else if (ext == '.zip') {
                 //unzip to redis folder and cleanup
                 const dir  = path.resolve('./redis');
@@ -49,7 +50,7 @@ module.exports.startServer = function(config, callback) {
                         callback(err);
                         return;
                     }
-    
+
                     winston.info('Redis download complete');
                     start()
                 })
@@ -59,7 +60,7 @@ module.exports.startServer = function(config, callback) {
 
     function getRedisFromLocalCopy() {
         winston.info("Getting redis from local stock");
-        
+
         if (!fs.existsSync('./bin')) {
             fs.mkdirSync('./bin');
 
@@ -90,13 +91,13 @@ module.exports.startServer = function(config, callback) {
             start();
         }
     }
-    
+
     function start () {
         server = new RedisServer({
             port: config.port,
             bin: dir + '/' + binName
         });
-    
+
         server.open((error) => {
             if (error) {
                 callback(error);
@@ -106,7 +107,7 @@ module.exports.startServer = function(config, callback) {
             winston.info('Redis server started');
             callback(null);
         });
-    }    
+    }
 }
 
 module.exports.createClient = function(config) {
@@ -124,7 +125,7 @@ module.exports.createClient = function(config) {
     }
 
     this.client = redis.createClient(c)
-    
+
     this.client.on('error', function(error){
         winston.error("Redis error: " + error);
     });
