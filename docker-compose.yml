@@ -24,14 +24,14 @@ services:
       #      REDIS_PASSWORD: ""
       REDIS_EMBEDDED: "false"
 #      MAILER_SERVICE_PROVIDER: mail
-#      MAILER_FROM: ${GMAIL_EMAIL}
-#      MAILER_EMAIL_ID:
-#      MAILER_PASSWORD:
+      MAILER_FROM: ${GMAIL_EMAIL}
+      MAILER_EMAIL_ID: ${GMAIL_USERNAME}
+      MAILER_PASSWORD: ${GMAIL_PASSWORD}
     #    command: "./node_modules/.bin/sequelize db:migrate" # run once
     depends_on:
       - db
       - cache
-      - mail
+#      - mail
     ports:
       - "80:80"
   #######################

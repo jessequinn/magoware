@@ -32,12 +32,12 @@ module.exports = {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
   mailer: {
-    from: process.env.MAILER_FROM || 'noreply@magoware.tv', //'MAILER_FROM',
+    from: process.env.MAILER_FROM || 'vivitv@getvivitv.com', //'MAILER_FROM',
     options: {
-      service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+      service: process.env.MAILER_SERVICE_PROVIDER || 'smtp.gmail.com:465',
       auth: {
-        user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
-        pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+        user: process.env.MAILER_EMAIL_ID || 'vivitv@getvivitv.com',
+        pass: process.env.MAILER_PASSWORD || 'Nova2019@'
       }
     }
   },
