@@ -9,6 +9,6 @@ module.exports = {
     dialect: process.env.DB_DIALECT,
     storage: "./db.development.sqlite",
     enableSequelizeLog: (process.env.DB_LOG === 'true') ? true:false,
-    ssl: process.env.DB_SSL,
+    ssl: (process.env.DB_SSL === 'true') ? true:false,
     sync: (process.env.DB_SYNC === 'true') ? true:false,
 };

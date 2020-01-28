@@ -10,7 +10,6 @@ var binName;
 var dir = './bin/redis';
 
 module.exports.startServer = function(config, callback) {
-    winston.info('Platform: ' + process.platform);
     if (process.platform == 'win32') {
         binName = 'redis-server.exe';
         if (!fs.existsSync(dir)) {
@@ -70,7 +69,8 @@ module.exports.startServer = function(config, callback) {
             fs.mkdirSync(dir);
         }
 
-        const source = './public/files/redis/'
+        const source = './public/files/redis/';
+
         if(process.platform == 'win32') {
             const dir  = path.resolve('./bin/redis');
             extractZip(source + 'redis-win.zip', {dir: dir}, function(err) {

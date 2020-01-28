@@ -32,6 +32,7 @@ exports.send = function (req, options) {
     const smtpConfig = {
       host: (req.app.locals.backendsettings[options.company_id].smtp_host) ? req.app.locals.backendsettings[options.company_id].smtp_host.split(':')[0] : 'smtp.gmail.com',
       port: (req.app.locals.backendsettings[options.company_id].smtp_host) ? Number(req.app.locals.backendsettings[options.company_id].smtp_host.split(':')[1]) : 465,
+      // pool: true,
       secure: (req.app.locals.backendsettings[options.company_id].smtp_secure === false) ? req.app.locals.backendsettings[options.company_id].smtp_secure : true,
       auth: {
         user: req.app.locals.backendsettings[options.company_id].email_username,

@@ -44,10 +44,7 @@ module.exports.init = function init(callback) {
 
 module.exports.start = function start(callback) {
   winston.info('Initializing Stack...');
-  winston.info('Redis Config: ' + config.redis.host + ' ' + config.redis.embedded);
-
   var _this = this;
-
   _this.init(function(app, db, config) {
 
     // Start the app by listening on <port>

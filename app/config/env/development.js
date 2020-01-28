@@ -17,7 +17,7 @@ module.exports = {
     port: process.env.REDIS_PORT || 6379,
     database: process.env.REDIS_DATABASE || 0,
     password: process.env.REDIS_PASSWORD || "",
-    embedded: process.env.REDIS_EMBEDDED || true
+    embedded: (process.env.REDIS_EMBEDDED === 'true') ? true:false
   },
   log: {
     // Can specify one of 'combined', 'common', 'dev', 'short', 'tiny'
