@@ -1,0 +1,61 @@
+{
+    "auth": {
+        "description": "This group of settings configures the auth like max number of multi logins simultaneously.",
+        "max_logins": 2
+    },
+    "vod": {
+        "description": "Vod configuration",
+        "transaction_duration": 24
+    },
+    "woocomerce": {
+        "description": "Integration configuration of woocomerce billing with Magoware management system. Parameter  :  URL of the woocomerce page (http(s)://yourdomainname). Consumer Key found on woocomerce admin page under advanced settings. Consumer Secret key found on woocomerce admin page under advanced settings",
+        "base_url": "",
+        "consumer_secret": "",
+        "consumer_key": ""
+    },
+    "stripe": {
+        "description": "Integration configuration of the Stripe billing system with Magoware management system. Publishable Key found on Stripe admin page under Development tools. Secret Key found on stripe admin page under Development tools.",
+        "api_key": "",
+        "publishable_key": "",
+        "secret_key": ""
+    },
+    "paypal": {
+        "description": "Integration configuration of the Paypal billing system with Magoware management system. By deffault not used. Instead preconfigured buttons with IPN",
+        "production": false,
+        "client_id": "",
+        "client_secret": ""
+    },
+    "flussonic": {
+        "description": "Integration configuration for token stream protection via Flussonic. Key value used when configuring the token on Flussonic server. Salt value used when configuring the token on Flussonic server. Password used when configuring the token on Flussonic server. Window value which determines the time in second the token is valuable.",
+        "key": "",
+        "salt": "",
+        "password": "",
+        "window": ""
+    },
+    "akamai": {
+        "description": "Integration configuration for token stream protection via Akamai. Key value used when configuring the token on Akamai server. Salt used when configuring the token on Flussonic server. Window value which determines the time in second the token is valuable.",
+        "key": "",
+        "salt": "",
+        "window": ""
+    },
+    "verizon": {
+        "description": "Integration configuration for Verizon cdn token creation. Key value used when configuring the token on Verizon server. Proto Allowed value specifies the protocol. Window value which determines the time in seconds the token is valuable.",
+        "key": "",
+        "proto_allowed": "http",
+        "window": 10
+    },
+    "wowza": {
+        "description": "Integration configuration for stream token generation for WOWZA. Shared Secret value used when configuring the token on Womza server. Window value which determines the time in second the token is valuable.",
+        "shared_secret": "",
+        "window": 10800
+    },
+    "nimble_drm": {
+        "description": "Integration configuration for drm key stream protection via Nimble.",
+        "key": ""
+    },
+    "nimble_token": {
+        "description": "Integration configuration for stream token generation for Nimble. Key is used to generate token. Window defines the time the token is valid.",
+        "key": "",
+        "window": 10
+    }
+}

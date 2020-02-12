@@ -1,0 +1,32 @@
+{
+  "name": "magoware-backoffice",
+  "version": "0.0.2",
+  "main": "js/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git://bitbucket.org/magoware/magoware-backoffice.git"
+  },
+  "dependencies": {
+    "vis": "^4.20.1"
+  },
+  "devDependencies": {
+    "admin-config": "^0.4.0",
+    "babel": "^5.8.23",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^5.4.2",
+    "css-loader": "^0.16.0",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "html-loader": "^0.5.5",
+    "moment": "^2.10.6",
+    "ng-admin": "marmelab/ng-admin",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^2.0.1",
+    "style-loader": "^0.12.3",
+    "webpack": "^1.12.0"
+  },
+  "scripts": {
+    "build": "webpack  --progress --colors --devtool source-map"
+  },
+  "author": "MagoWare",
+  "license": "MIT"
+}
