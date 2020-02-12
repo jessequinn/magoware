@@ -13,7 +13,8 @@ RUN npm install && npm install pg@6.1.0
 ## Copy project files into the docker image
 COPY ./app /app/
 
-CMD ["npm", "start"] # comment out to initialize database
+# comment out to initialize database
+CMD ["npm", "start"]
 
 
 ## Build something. Let's assume that it outputs into /app/dist/

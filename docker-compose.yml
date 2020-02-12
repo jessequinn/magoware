@@ -26,7 +26,7 @@ services:
       MAILER_FROM: ${GMAIL_EMAIL}
       MAILER_EMAIL_ID: ${GMAIL_USERNAME}
       MAILER_PASSWORD: ${GMAIL_PASSWORD}
-    # command: "./node_modules/.bin/sequelize db:migrate" # run once
+#    command: "./node_modules/.bin/sequelize db:migrate" # run once
     depends_on:
       - db
       - cache

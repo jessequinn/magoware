@@ -65,9 +65,9 @@ async.waterfall([
           'password: process.env.DB_PASSWORD || "' + result.password + '",  \n' +
           'dialect: process.env.DB_DIALECT || "mysql", //mysql, postgres, sqlite3,... \n' +
           'storage: "./db.development.sqlite", \n' +
-          'enableSequelizeLog: (process.env.DB_LOG === \'true\') ? true:false, \n' +
-          'ssl: process.env.DB_SSL || false,   \n' +
-          'sync: (process.env.DB_SYNC === \'true\') ? true:false //Synchronizing any model changes with database \n' +
+          'enableSequelizeLog: (process.env.DB_LOG === \'true\') ? true : false, \n' +
+          'ssl: (process.env.DB_SSL === \'true\') ? true : false,\n' +
+          'sync: (process.env.DB_SYNC === \'true\') ? true : false //Synchronizing any model changes with database \n' +
           '};';
 
         fs.writeFile(dbfile, configfile, function (err) {
