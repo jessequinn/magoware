@@ -1,6 +1,14 @@
 ### Development
 Several modifications were made to the configuration files found in `app/config/env`.
 
+Include a `.env` in main directory for GMAIL settings
+
+```yml
+GMAIL_USERNAME=username
+GMAIL_PASSWORD=password
+GMAIL_EMAIL=some@email.com
+```
+
 To begin the installation:
 
 1. Comment out `command: "./node_modules/.bin/sequelize db:migrate"` in the `docker-compose.yml`
@@ -19,6 +27,9 @@ To begin the installation:
 14. Comment out `command: "./node_modules/.bin/sequelize db:migrate"` in the `docker-compose.yml`
 15. Run `docker-compose up --build --remove-orphans` again or with the `-d` as detached
 16. Login as `superadmin` or create a new account
+
+
+
 
 Access site `http://localhost:80/admin` - superadmin/superadmin.
 Adminer `http://localhost:8080/`.
